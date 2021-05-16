@@ -1,7 +1,17 @@
-<template><h2>Ayo</h2></template>
+<template>
+  <the-score :logo="logoUrl"></the-score>
+</template>
 
 <script>
-export default {};
+import TheScore from "./components/UI/TheScore.vue";
+export default {
+  components: { TheScore },
+  data() {
+    return {
+      logoUrl: require("./assets/logo.svg"),
+    };
+  },
+};
 </script>
 
 <style>
