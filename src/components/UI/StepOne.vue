@@ -1,8 +1,6 @@
 <template>
   <div :style="style">
-    <slot name="paper"></slot>
-    <slot name="scissor"></slot>
-    <slot name="rock"></slot>
+    
   </div>
 </template>
 
