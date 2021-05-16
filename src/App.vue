@@ -1,5 +1,5 @@
 <template>
-  <the-score :logo="logoUrl"></the-score>
+  <the-score :logo="logoUrl" :score="score"></the-score>
 </template>
 
 <script>
@@ -9,17 +9,22 @@ export default {
   data() {
     return {
       logoUrl: require("./assets/logo.svg"),
+      score: "0",
     };
   },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   margin: 0 !important;
   padding: 0 !important;
+  font-family: "Barlow Semi Condensed", sans-serif;
   background: radial-gradient(#1f3756, #141539);
+  display: flex;
+  justify-content: center;
 }
 </style>
