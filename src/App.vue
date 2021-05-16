@@ -1,5 +1,7 @@
 <template>
-  <the-score :logo="logoUrl" :score="score"></the-score>
+  <keep-alive>
+    <the-score :logo="logoUrl" :score="score"></the-score>
+  </keep-alive>
   <step-one :backUrl="backgroundImg"></step-one>
 </template>
 
