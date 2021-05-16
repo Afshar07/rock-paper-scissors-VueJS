@@ -1,15 +1,18 @@
 <template>
   <the-score :logo="logoUrl" :score="score"></the-score>
+  <the-wrapper :backUrl="backgroundImg"></the-wrapper>
 </template>
 
 <script>
 import TheScore from "./components/UI/TheScore.vue";
+import TheWrapper from "./components/UI/TheWrapper.vue";
 export default {
-  components: { TheScore },
+  components: { TheScore, TheWrapper },
   data() {
     return {
       logoUrl: require("./assets/logo.svg"),
       score: "0",
+      backgroundImg: require("./assets/bg-triangle.svg"),
     };
   },
 };
