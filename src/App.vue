@@ -1,13 +1,13 @@
 <template>
   <the-score :logo="logoUrl" :score="score"></the-score>
-  <the-wrapper :backUrl="backgroundImg"></the-wrapper>
+  <step-one :backUrl="backgroundImg"></step-one>
 </template>
 
 <script>
 import TheScore from "./components/UI/TheScore.vue";
-import TheWrapper from "./components/UI/TheWrapper.vue";
+import StepOne from "./components/UI/StepOne.vue";
 export default {
-  components: { TheScore, TheWrapper },
+  components: { TheScore, StepOne },
   data() {
     return {
       logoUrl: require("./assets/logo.svg"),
