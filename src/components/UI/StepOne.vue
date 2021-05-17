@@ -9,11 +9,13 @@
       ></option-container>
       <option-container
         class="scissor scissorStyle"
+        @click="$emit('scissor')"
         :optionImg="scissorImg"
         :style="stepOneStyle"
       ></option-container>
       <option-container
         class="rock rockStyle"
+        @click="$emit('rock')"
         :optionImg="rockImg"
         :style="stepOneStyle"
       ></option-container>
@@ -55,7 +57,7 @@ import OptionContainer from "../Layouts/OptionContainer.vue";
 export default {
   components: { OptionContainer },
   props: ["backUrl"],
-  emits: ["paper"],
+  emits: ["paper", "scissor", "rock"],
   computed: {
     style() {
       return "background-image:" + `url(${this.backUrl})`;
