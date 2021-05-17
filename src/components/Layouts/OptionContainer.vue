@@ -1,7 +1,7 @@
 <template>
   <div class="container" :style="style">
     <div class="whiteBg">
-      <img :src="optionImg" alt="Choose!" />
+      <img :src="optionImg" alt="Choose!" :class="bigger" />
     </div>
   </div>
 </template>
@@ -35,10 +35,14 @@
 .rockStyle {
   background-image: linear-gradient(#dc2e4e, #dd405d);
 }
+.bigger {
+  width: 60%;
+  height: 60%;
+}
 </style>
 
 <script>
 export default {
-  props: ["optionImg"],
+  props: ["optionImg", "bigger"],
 };
 </script>
