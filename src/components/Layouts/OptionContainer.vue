@@ -26,6 +26,15 @@
 .whiteBg:hover {
   box-shadow: 1px 1px 15px 1px #6e6e6e inset;
 }
+.paperStyle {
+  background-image: linear-gradient(#4865f4, #5671f5);
+}
+.scissorStyle {
+  background-image: linear-gradient(#ec9e0e, #eca922);
+}
+.rockStyle {
+  background-image: linear-gradient(#dc2e4e, #dd405d);
+}
 </style>
 
 <script>
