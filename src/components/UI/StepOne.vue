@@ -2,23 +2,20 @@
   <div :style="style" class="container">
     <div class="grid-container">
       <option-container
-        class="paper"
+        class="paper paperStyle"
         @click="$emit('paper')"
         :optionImg="paperImg"
-        style="background-image: linear-gradient(#4865f4, #5671f5);"
         :style="stepOneStyle"
       ></option-container>
       <option-container
-        class="scissor"
+        class="scissor scissorStyle"
         :optionImg="scissorImg"
         :style="stepOneStyle"
-        style="background-image: linear-gradient(#ec9e0e, #eca922);"
       ></option-container>
       <option-container
-        class="rock"
+        class="rock rockStyle"
         :optionImg="rockImg"
         :style="stepOneStyle"
-        style="background-image: linear-gradient(#dc2e4e, #dd405d);"
       ></option-container>
     </div>
   </div>
@@ -26,7 +23,7 @@
 
 <style scoped>
 .container {
-  width: 50vw;
+  width: 65vw;
   height: 30rem;
   background-repeat: no-repeat;
   background-position: center center;

@@ -9,8 +9,9 @@
 </template>
 
 <style scoped>
+
 .header-wrapper {
-  width: 50vw ;
+  width: 100% ;
   display: flex;
   justify-content: space-between;
   border: 2px solid #606e85;
