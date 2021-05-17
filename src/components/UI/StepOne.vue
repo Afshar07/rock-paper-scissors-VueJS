@@ -2,19 +2,20 @@
   <div :style="style" class="container">
     <div class="grid-container">
       <option-container
-      class="paper"
+        class="paper"
+        @click="$emit('paper')"
         :optionImg="paperImg"
         style="background-image: linear-gradient(#4865f4, #5671f5);"
         :style="stepOneStyle"
       ></option-container>
       <option-container
-      class="scissor"
+        class="scissor"
         :optionImg="scissorImg"
         :style="stepOneStyle"
         style="background-image: linear-gradient(#ec9e0e, #eca922);"
       ></option-container>
       <option-container
-      class="rock"
+        class="rock"
         :optionImg="rockImg"
         :style="stepOneStyle"
         style="background-image: linear-gradient(#dc2e4e, #dd405d);"
@@ -33,21 +34,21 @@
   justify-content: center;
   align-items: center;
 }
-.grid-container{
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
 }
-.paper{
+.paper {
   grid-column: 2/3;
 }
-.scissor{
+.scissor {
   grid-column: 5/6;
 }
-.rock{
-  grid-column:3/5;
+.rock {
+  grid-column: 3/5;
   grid-row: 3/ -2;
 }
 </style>
@@ -57,6 +58,7 @@ import OptionContainer from "../Layouts/OptionContainer.vue";
 export default {
   components: { OptionContainer },
   props: ["backUrl"],
+  emits: ["paper"],
   computed: {
     style() {
       return "background-image:" + `url(${this.backUrl})`;
