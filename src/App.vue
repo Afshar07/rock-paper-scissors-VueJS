@@ -4,6 +4,8 @@
   </keep-alive>
   <step-one
     @paper="playerHasChoosenPaper()"
+    @scissor="playerHasChoosenScissor()"
+    @rock="playerHasChoosenRock()"
     v-if="currentStep === 'step-one'"
     :backUrl="backgroundImg"
   ></step-one>
@@ -35,6 +37,16 @@ export default {
       this.currentStep = "step-two";
       this.stepTwoClass = "paperStyle";
       this.choosenImg = require("./assets/icon-paper.svg");
+    },
+    playerHasChoosenScissor() {
+      this.currentStep = "step-two";
+      this.stepTwoClass = "scissorStyle";
+      this.choosenImg = require("./assets/icon-scissors.svg");
+    },
+    playerHasChoosenRock() {
+      this.currentStep = "step-two";
+      this.stepTwoClass = "rockStyle";
+      this.choosenImg = require("./assets/icon-rock.svg");
     },
   },
 };
