@@ -20,7 +20,7 @@
   border-radius: 10px;
 }
 .scoreContainer {
-  width: 25%;
+  width: 18%;
   height: 80%;
   background-color: #fff;
   display: flex;
