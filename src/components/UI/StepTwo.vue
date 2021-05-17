@@ -5,6 +5,7 @@
       <option-container
         :style="stepTwoStyle"
         :class="choosen"
+        bigger="bigger"
         :optionImg="choosenImg"
       ></option-container>
     </div>
@@ -15,6 +16,7 @@
         :style="stepTwoStyle"
         :optionImg="pcChoosenImg"
         :class="pcChoosenClass"
+        bigger="bigger"
         v-else
       ></option-container>
     </div>
@@ -62,6 +64,7 @@
 import OptionContainer from "../Layouts/OptionContainer.vue";
 export default {
   props: ["choosen", "choosenImg"],
+  emits: ["rendered"],
   data() {
     return {
       stepTwoStyle: "width: 14rem; height: 14rem",
@@ -85,7 +88,6 @@ export default {
     },
     renderPcChoose() {
       this.pcChoose();
-      console.log(this.pcChoosen);
       if (this.pcChoosen == "rock") {
         this.pcChoosenImg = require("../../assets/icon-rock.svg");
         this.pcChoosenClass = "rockStyle";
@@ -96,6 +98,7 @@ export default {
         this.pcChoosenImg = require("../../assets/icon-scissors.svg");
         this.pcChoosenClass = "scissorStyle";
       }
+      this.$emit("rendered", this.pcChoosen);
     },
   },
   components: { OptionContainer },
