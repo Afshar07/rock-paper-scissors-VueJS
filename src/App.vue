@@ -13,7 +13,9 @@
     v-else-if="currentStep === 'step-two'"
     :choosen="stepTwoClass"
     :choosenImg="choosenImg"
+    :winnerState="setWinner"
     @rendered="onRenderChild($event)"
+    @play-again="playAgain()"
   ></step-two>
 </template>
 
@@ -34,6 +36,7 @@ export default {
       pcChoosen: "",
       playerChoosen: "",
       winner: "",
+      setWinner: "",
     };
   },
   watch: {
@@ -45,13 +48,20 @@ export default {
         this.score++;
       } else if (value == "draw") {
         return;
-      } else {
+      } else if (value == "computer") {
         this.score--;
       }
     },
   },
 
   methods: {
+    playAgain() {
+      this.currentStep = "step-one";
+      this.winner = "";
+      this.setWinner = "";
+      this.pcChoosen = "";
+      this.playerChoosen = "";
+    },
     determineWinner() {
       const winningMap = { rock: "scissor", paper: "rock", scissor: "paper" };
       if (this.pcChoosen == this.playerChoosen) {
@@ -61,8 +71,18 @@ export default {
       } else {
         this.winner = "computer";
       }
-      console.log(winningMap[this.playerChoosen]);
+      this.winnerState();
       return;
+    },
+    winnerState() {
+      if (this.winner == "player") {
+        this.setWinner = "You Win";
+      } else if (this.winner == "computer") {
+        this.setWinner = "You Lose";
+      } else if (this.winner == "draw") {
+        this.setWinner = "Draw!";
+      }
+      console.log(this.setWinner);
     },
     playerHasChoosenPaper() {
       this.currentStep = "step-two";
@@ -84,7 +104,6 @@ export default {
     },
     onRenderChild(value) {
       this.pcChoosen = value;
-      console.log(this.pcChoosen);
     },
   },
 };
