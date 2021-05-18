@@ -2,6 +2,7 @@
   <div class="container">
     <div class="playerChoice">
       <p>You picked</p>
+      <!-- Show Player Choice -->
       <option-container
         :style="stepTwoStyle"
         :class="choosen"
@@ -9,9 +10,13 @@
         :optionImg="choosenImg"
       ></option-container>
     </div>
+    <!-- Result and play again button when bot choice is rendered -->
+    <play-again v-if="pcChoosen" :winner="winnerState" @playagain="$emit('play-again')"> </play-again>
     <div class="computerChoice">
       <p>The House Picked</p>
+      <!-- Empy circle before bot chooses -->
       <div class="beforePcChoose" v-if="show"></div>
+      <!-- Bot Choice -->
       <option-container
         :style="stepTwoStyle"
         :optionImg="pcChoosenImg"
@@ -62,9 +67,11 @@
 
 <script>
 import OptionContainer from "../Layouts/OptionContainer.vue";
+import PlayAgain from "../Layouts/PlayAgain.vue";
 export default {
-  props: ["choosen", "choosenImg"],
-  emits: ["rendered"],
+  components: { OptionContainer, PlayAgain },
+  props: ["choosen", "choosenImg", "winnerState"],
+  emits: ["rendered", "play-again"],
   data() {
     return {
       stepTwoStyle: "width: 14rem; height: 14rem",
@@ -76,6 +83,7 @@ export default {
     };
   },
   methods: {
+    // House (bot) Choice
     pcChoose() {
       const randNumber = Math.floor(Math.random() * 3 + 1);
       if (randNumber === 1) {
@@ -86,8 +94,11 @@ export default {
         this.pcChoosen = "rock";
       }
     },
+    // Show House (bot) choice
     renderPcChoose() {
+      // Call the method for bot choice
       this.pcChoose();
+      // Render image for bot choice
       if (this.pcChoosen == "rock") {
         this.pcChoosenImg = require("../../assets/icon-rock.svg");
         this.pcChoosenClass = "rockStyle";
@@ -98,15 +109,15 @@ export default {
         this.pcChoosenImg = require("../../assets/icon-scissors.svg");
         this.pcChoosenClass = "scissorStyle";
       }
+      // Send bot choice to app.vue
       this.$emit("rendered", this.pcChoosen);
     },
   },
-  components: { OptionContainer },
   mounted() {
     setTimeout(() => {
       this.show = false;
       this.renderPcChoose();
-    }, 3000);
+    }, 200);
   },
 };
 </script>
