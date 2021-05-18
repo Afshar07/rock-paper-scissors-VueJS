@@ -40,9 +40,11 @@ export default {
     };
   },
   watch: {
+    // Call the determineWinner function when pcChoosen data has changed
     pcChoosen() {
       this.determineWinner();
     },
+    // Set score based on winner;
     winner(value) {
       if (value == "player") {
         this.score++;
@@ -62,6 +64,8 @@ export default {
       this.pcChoosen = "";
       this.playerChoosen = "";
     },
+
+    // Determine the winner based on pc/user choice
     determineWinner() {
       const winningMap = { rock: "scissor", paper: "rock", scissor: "paper" };
       if (this.pcChoosen == this.playerChoosen) {
@@ -74,6 +78,8 @@ export default {
       this.winnerState();
       return;
     },
+
+    // Set the text to show in play again component based on determineWinner function
     winnerState() {
       if (this.winner == "player") {
         this.setWinner = "You Win";
@@ -82,8 +88,8 @@ export default {
       } else if (this.winner == "draw") {
         this.setWinner = "Draw!";
       }
-      console.log(this.setWinner);
     },
+    // Functions to call on player choice
     playerHasChoosenPaper() {
       this.currentStep = "step-two";
       this.stepTwoClass = "paperStyle";
@@ -102,6 +108,7 @@ export default {
       this.choosenImg = require("./assets/icon-rock.svg");
       this.playerChoosen = "rock";
     },
+    // Get the pc choice from child component
     onRenderChild(value) {
       this.pcChoosen = value;
     },
