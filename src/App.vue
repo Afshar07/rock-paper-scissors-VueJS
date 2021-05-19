@@ -82,9 +82,9 @@ export default {
     // Set the text to show in play again component based on determineWinner function
     winnerState() {
       if (this.winner == "player") {
-        this.setWinner = "You Win";
+        this.setWinner = "You Win!";
       } else if (this.winner == "computer") {
-        this.setWinner = "You Lose";
+        this.setWinner = "You Lose!";
       } else if (this.winner == "draw") {
         this.setWinner = "Draw!";
       }
