@@ -36,6 +36,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 100%;
+  text-align: center;
 }
 .play-again {
   font-family: "Barlow Semi Condensed", sans-serif;
