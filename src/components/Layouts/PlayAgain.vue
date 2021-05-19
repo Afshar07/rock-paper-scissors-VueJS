@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>{{ winner }}</h2>
+    <h2 :style="winnerStyle">{{ winner }}</h2>
     <button class="play-again" @click="$emit('playagain')">Play Again</button>
   </div>
 </template>
@@ -10,6 +10,17 @@
 export default {
   props: ["winner"],
   emits: ["playagain"],
+  computed: {
+    winnerStyle() {
+      if (this.winner == "You Win!") {
+        return "color: #00a130;";
+      } else if (this.winner == "Draw!") {
+        return;
+      } else {
+        return "color: #ff0000;";
+      }
+    },
+  },
 };
 </script>
 <style scoped>
@@ -24,6 +35,7 @@ h2 {
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  width: 100%;
 }
 .play-again {
   font-family: "Barlow Semi Condensed", sans-serif;
