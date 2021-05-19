@@ -32,7 +32,7 @@ export default {
 }
 h2 {
   color: #fff;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 100%;
