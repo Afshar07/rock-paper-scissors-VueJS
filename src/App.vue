@@ -17,7 +17,8 @@
     @rendered="onRenderChild($event)"
     @play-again="playAgain()"
   ></step-two>
-  <the-rules-button class="rules-btn"></the-rules-button>
+  <the-rules v-if="theRules" class="the-rules"></the-rules>
+  <the-rules-button class="rules-btn" @openRules="openRules"></the-rules-button>
 </template>
 
 <script>
@@ -25,8 +26,9 @@ import TheScore from "./components/UI/TheScore.vue";
 import StepOne from "./components/UI/StepOne.vue";
 import StepTwo from "./components/UI/StepTwo.vue";
 import TheRulesButton from "./components/UI/TheRulesButton";
+import TheRules from "./components/UI/TheRules.vue";
 export default {
-  components: { TheScore, StepOne, StepTwo, TheRulesButton },
+  components: { TheScore, StepOne, StepTwo, TheRulesButton, TheRules },
   data() {
     return {
       currentStep: "step-one",
@@ -39,6 +41,7 @@ export default {
       playerChoosen: "",
       winner: "",
       setWinner: "",
+      theRules: false,
     };
   },
   watch: {
@@ -59,6 +62,9 @@ export default {
   },
 
   methods: {
+    openRules() {
+      this.theRules = true;
+    },
     playAgain() {
       this.currentStep = "step-one";
       this.winner = "";
@@ -130,9 +136,14 @@ body {
   display: flex;
   justify-content: center;
 }
-.rules-btn{
+.rules-btn {
   position: fixed;
   right: 1.5rem;
   bottom: 2rem;
+}
+.the-rules{
+  position: absolute;
+  top: 25%;
+  left: 31.5%;
 }
 </style>
