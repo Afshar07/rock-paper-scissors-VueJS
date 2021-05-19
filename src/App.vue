@@ -17,7 +17,11 @@
     @rendered="onRenderChild($event)"
     @play-again="playAgain()"
   ></step-two>
-  <the-rules v-if="theRules" class="the-rules"></the-rules>
+  <the-rules
+    v-if="theRules"
+    class="the-rules"
+    @closeRules="closeRules"
+  ></the-rules>
   <the-rules-button class="rules-btn" @openRules="openRules"></the-rules-button>
 </template>
 
@@ -64,6 +68,9 @@ export default {
   methods: {
     openRules() {
       this.theRules = true;
+    },
+    closeRules() {
+      this.theRules = false;
     },
     playAgain() {
       this.currentStep = "step-one";
@@ -141,9 +148,12 @@ body {
   right: 1.5rem;
   bottom: 2rem;
 }
-.the-rules{
+.the-rules {
   position: absolute;
-  top: 25%;
-  left: 31.5%;
+  top: 11rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
