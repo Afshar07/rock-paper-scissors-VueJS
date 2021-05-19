@@ -9,7 +9,7 @@ So i decided to do this with my current knowledge of VueJS and it was an awesome
 
 I've got few issues that need some work:
 * Refactor the functions and make it a bit cleaner.
-* make the whole thing responsive since for the time being, it's just a desktop version.
+* make the whole thing responsive; since for the time being, it's just a desktop version.
 * Add some more styling for better visualization.
 
 ### Note to myself:
